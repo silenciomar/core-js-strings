@@ -313,8 +313,15 @@ function containsSubstring(str, substring) {
  *   countVowels('aEiOu') => 5
  *   countVowels('XYZ') => 1
  */
-function countVowels(/* str */) {
-  throw new Error('Not implemented');
+function countVowels(str) {
+  const vowels = 'AaEeIiOoUuYy';
+  let result = 0;
+  for (let i = 0; i < str.length; i += 1) {
+    if (vowels.includes(str[i])) {
+      result += 1;
+    }
+  }
+  return result;
 }
 
 /**
@@ -330,8 +337,17 @@ function countVowels(/* str */) {
  *   isPalindrome('apple') => false
  *   isPalindrome('No lemon, no melon') => true
  */
-function isPalindrome(/* str */) {
-  throw new Error('Not implemented');
+function isPalindrome(str) {
+  // str = str.toLowerCase();
+  const arrWithoutW = [];
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[i] !== ' ' && str[i] !== '!' && str[i] !== '?' && str[i] !== ',') {
+      arrWithoutW.push(str[i].toLowerCase());
+    }
+  }
+  const newStr = arrWithoutW.join('');
+  const reverseStr = arrWithoutW.reverse().join('');
+  return newStr === reverseStr;
 }
 
 /**
@@ -399,8 +415,8 @@ function invertCase(str) {
  *   getStringFromTemplate('John','Doe') => 'Hello, John Doe!'
  *   getStringFromTemplate('Chuck','Norris') => 'Hello, Chuck Norris!'
  */
-function getStringFromTemplate(/* firstName, lastName */) {
-  throw new Error('Not implemented');
+function getStringFromTemplate(firstName, lastName) {
+  return `Hello, ${firstName} ${lastName}!`;
 }
 
 /**
